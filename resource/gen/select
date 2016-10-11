@@ -1,0 +1,3 @@
+<?= $this->Form->select("ddl001", [], ['label'=>false, 'class' => 'form-control']);?>
+<?= $this->Form->select("ddl002", [], ['label'=>false, 'class' => 'form-control']);?>
+<?= $this->Form->select("ddl003", [], ['label'=>false, 'class' => 'form-control']);?>

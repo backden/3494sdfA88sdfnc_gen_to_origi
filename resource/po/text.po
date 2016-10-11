@@ -1,0 +1,14 @@
+msgid "lbl001"
+msgstr "Konichiwa"
+
+msgid "lbl002"
+msgstr "Gomenasai"
+
+msgid "lbl003"
+msgstr "KonichiwaGomenasaiKonichiwaGomenasaiKonichiwaGomenasaiKonichiwaGomenasai"
+
+msgid "lbl004"
+msgstr "San!"
+
+msgid "lbl005"
+msgstr "Ni!"

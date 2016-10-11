@@ -1,0 +1,34 @@
+<?= $this->Form->input("rdo001", [
+    "type" => "radio",
+    "template" => $radioTemplate,
+    "options" => [
+        [
+            "text" => __d($domain, ""),
+            "value" => ""
+        ],
+        [
+            "text" => __d($domain, ""),
+            "value" => ""
+        ]
+    ]
+])
+?>
+<?= $this->Form->input("rdo002", [
+    "type" => "radio",
+    "template" => $radioTemplate,
+    "options" => [
+        [
+            "text" => __d($domain, ""),
+            "value" => ""
+        ],
+        [
+            "text" => __d($domain, ""),
+            "value" => ""
+        ],
+        [
+            "text" => __d($domain, ""),
+            "value" => ""
+        ]
+    ]
+])
+?>

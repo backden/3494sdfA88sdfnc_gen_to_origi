@@ -1,0 +1,4 @@
+<?= $this->Form->button("ddl001", __d($domain, "btn001"), ['label'=>false, 'class' => 'form-control']);?>
+<?= $this->Form->button("ddl002", __d($domain, "btn002"), ['label'=>false, 'class' => 'form-control']);?>
+<?= $this->Form->button("ddl003", __d($domain, "btn003"), ['label'=>false, 'class' => 'form-control']);?>
+

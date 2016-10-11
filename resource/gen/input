@@ -1,0 +1,4 @@
+<?= $this->Form->input('txt001', [ 'label' => false, 'class' => 'form-control' ]);?>
+<?= $this->Form->input('txt002', [ 'label' => false, 'class' => 'form-control' ]);?>
+<?= $this->Form->input('txt003', [ 'label' => false, 'class' => 'form-control' ]);?>
+<?= $this->Form->input('txt004', [ 'label' => false, 'class' => 'form-control' ]);?>

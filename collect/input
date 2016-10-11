@@ -1,0 +1,9 @@
+<?php $this->Form->input("hellu", [
+    "name" => "asdsadsad32423423"
+])
+?>
+<?php $this->Form->input("hellu222", [
+    "name" => "asdsadsad32423423",
+    "class"  => "form-control"
+])
+?>
