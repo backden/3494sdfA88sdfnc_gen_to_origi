@@ -48,14 +48,6 @@ function replaceResourceToElement($html, $resource, $options) {
         $resourceContent[$msgstr] = $msgId;
     }
     krsort($resourceContent);
-//    print_r($resourceContent);
-//    exit;
-//    foreach ($entries as $data) {
-//        $msgId = $data["msgid"][0];
-//        $msgstr = $data["msgstr"][0];
-//        $resourceContent[$msgId] = $msgstr;
-//    }
-
 
     $selector = $options["selector"];
     $output = $options["output"];
@@ -80,36 +72,37 @@ function replaceResourceToElement($html, $resource, $options) {
     $htmlDom->save($output);
 }
 
-$originalHtml = __DIR__ . "/resource/bk/index.html";
-$po = __DIR__ . "/resource/po/text.po";
-$html = __DIR__ . "/resource/index.html";
-$output = __DIR__ . "/result/index.php";
+if (isset($_GET["start"])) {
+    $originalHtml = __DIR__ . "/resource/bk/index.html";
+    $po = __DIR__ . "/resource/po/text.po";
+    $html = __DIR__ . "/resource/index.html";
+    $output = __DIR__ . "/result/index.php";
 
-copy($originalHtml, $html);
+    copy($originalHtml, $html);
 
-$resource = __DIR__ . "/resource/gen/input";
-replaceElement($html, $resource, [
-    "selector" => "input[type='text']",
-    "where_replace" => "outertext",
-    "output" => $output
-]);
-copy($output, $html);
+    $resource = __DIR__ . "/resource/gen/input";
+    replaceElement($html, $resource, [
+        "selector" => "input[type='text']",
+        "where_replace" => "outertext",
+        "output" => $output
+    ]);
+    copy($output, $html);
 
-$resource = __DIR__ . "/resource/gen/select";
-replaceElement($html, $resource, [
-    "selector" => "select",
-    "where_replace" => "outertext",
-    "output" => $output
-]);
-copy($output, $html);
+    $resource = __DIR__ . "/resource/gen/select";
+    replaceElement($html, $resource, [
+        "selector" => "select",
+        "where_replace" => "outertext",
+        "output" => $output
+    ]);
+    copy($output, $html);
 
-$resource = __DIR__ . "/resource/gen/button";
-replaceElement($html, $resource, [
-    "selector" => "button",
-    "where_replace" => "outertext",
-    "output" => $output
-]);
-copy($output, $html);
+    $resource = __DIR__ . "/resource/gen/button";
+    replaceElement($html, $resource, [
+        "selector" => "button",
+        "where_replace" => "outertext",
+        "output" => $output
+    ]);
+    copy($output, $html);
 
 //$resource = __DIR__ . "/resource/gen/radio";
 //replaceElement($html, $resource, [
@@ -119,23 +112,43 @@ copy($output, $html);
 //]);
 //copy($output, $html);
 
-$resource = $po;
-replaceResourceToElement($html, $resource, [
-    "selector" => "label",
-    "output" => $output
-]);
-copy($output, $html);
+    $resource = $po;
+    replaceResourceToElement($html, $resource, [
+        "selector" => "label",
+        "output" => $output
+    ]);
+    copy($output, $html);
 
-$resource = $po;
-replaceResourceToElement($html, $resource, [
-    "selector" => "a",
-    "output" => $output
-]);
-copy($output, $html);
+    $resource = $po;
+    replaceResourceToElement($html, $resource, [
+        "selector" => "a",
+        "output" => $output
+    ]);
+    copy($output, $html);
 
-$resource = $po;
-replaceResourceToElement($html, $resource, [
-    "selector" => "p",
-    "output" => $output
-]);
-copy($output, $html);
+    $resource = $po;
+    replaceResourceToElement($html, $resource, [
+        "selector" => "p",
+        "output" => $output
+    ]);
+    copy($output, $html);
+} else {
+    //counting element
+    $originalHtml = __DIR__ . "/resource/bk/index.html";
+    $po = __DIR__ . "/resource/po/text.po";
+    $html = __DIR__ . "/resource/counter.html";
+    $output = __DIR__ . "/result/counter.php";
+
+    copy($originalHtml, $html);
+
+    $countElement = ["input[type=text]", "select", "textarea", "label"];
+    $htmlDom = file_get_html($html);
+    foreach ($countElement as $counter) {
+        $elements = $htmlDom->find($counter);
+        $count = 0;
+        foreach ($elements as $ele) {
+            $count++;
+        }
+        echo $counter . " = " . $count . "\n";
+    }
+}
