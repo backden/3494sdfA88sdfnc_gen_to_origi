@@ -104,13 +104,21 @@ if (isset($_GET["start"])) {
     ]);
     copy($output, $html);
 
-//$resource = __DIR__ . "/resource/gen/radio";
-//replaceElement($html, $resource, [
-//    "selector" => "input[type='radio']",
-//    "where_replace" => "outertext",
-//    "output" => $output
-//]);
-//copy($output, $html);
+    $resource = __DIR__ . "/resource/gen/radio";
+    replaceElement($html, $resource, [
+        "selector" => "div[class='radio']",
+        "where_replace" => "outertext",
+        "output" => $output
+    ]);
+    copy($output, $html);
+    
+    $resource = __DIR__ . "/resource/gen/checkbox";
+    replaceElement($html, $resource, [
+        "selector" => "label[class='bb-checkbox']",
+        "where_replace" => "outertext",
+        "output" => $output
+    ]);
+    copy($output, $html);
 
     $resource = $po;
     replaceResourceToElement($html, $resource, [
